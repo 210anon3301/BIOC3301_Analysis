@@ -1,0 +1,28 @@
+#!/bin/bash --login
+#PBS -l walltime=01:00:00
+#PBS -l select=1:ncpus=48
+#PBS -N 2018_join_paired_ends
+
+cd ~/2018_02_smb
+
+# load modules
+module load miniconda/python2
+
+# loading virtualenv
+echo “loading virtualenv”
+source activate qiime1
+
+# setting temporary directory
+export TMPDIR=~/qiime_tmp
+
+# joining paired ends
+echo “Joining paired ends”
+time join_paired_ends.py \
+-m SeqPrep \
+-b Index.fastq.gz \
+-f Read1.fastq.gz \
+-r Read2.fastq.gz \
+-o SeqPrep_joined
+
+# deactivating virtualenv
+source deactivate 

@@ -18,6 +18,7 @@ export TMPDIR=~/qiime_tmp
 
 # joining paired ends
 echo “Joining paired ends”
+
 time join_paired_ends.py \
 -m SeqPrep \
 -b ~/2018_02_smb/Index.fastq.gz \

@@ -4,6 +4,8 @@
 #PBS -N 2018_join_paired_ends
 #PBS -A d411-training
 
+cd $PBS_O_WORKDIR
+
 # load modules
 module load miniconda/python2
 
@@ -21,7 +23,7 @@ time join_paired_ends.py \
 -b ~/2018_02_smb/Index.fastq.gz \
 -f ~/2018_02_smb/Read1.fastq.gz \
 -r ~/2018_02_smb/Read2.fastq.gz \
--o SeqPrep_joined
+-o ~/2018_02_smb/
 
 # deactivating virtualenv
 source deactivate 

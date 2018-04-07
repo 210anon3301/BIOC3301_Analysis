@@ -21,4 +21,4 @@ time split_libraries_fastq.py \
 -b ~/2018_02_smb/Index.fastq.gz \
 -o ~/2018_02_smb \
 -q 19 \
-—barcode_type 12
+—-barcode_type 12

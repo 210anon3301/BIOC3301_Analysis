@@ -1,0 +1,25 @@
+#!/bin/bash -login
+#PBS -l walltime=10:00:00
+#PBS -l select=1:ncpus=4
+#PBS -N de_novo_otu
+#PBS -A d411-training
+
+# load module
+module load miniconda/python2
+
+# activate virtualenv
+source activate qiime1
+
+# create temporary directory
+export TMPDIR=~/qiime_tmp
+
+# pick de novo OTUs
+
+time pick_de_novo_otus.py \
+-i ~/2018_02_smb/seqs.fna \
+-o ~/2018_02_smb/de_novo_otus \
+-a \
+-O 2
+
+# deactivate virtualenv
+source deactivate

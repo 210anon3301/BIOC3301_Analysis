@@ -1,0 +1,214 @@
+Logging started at 13:24:23 on 08 Apr 2018
+QIIME version: 1.9.1
+
+qiime_config values:
+pick_otus_reference_seqs_fp	/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
+sc_queue	all.q
+pynast_template_alignment_fp	/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set_aligned/85_otus.pynast.fasta
+cluster_jobs_fp	start_parallel_jobs.py
+assign_taxonomy_reference_seqs_fp	/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/rep_set/97_otus.fasta
+torque_queue	friendlyq
+jobs_to_start	1
+denoiser_min_per_core	50
+assign_taxonomy_id_to_taxonomy_fp	/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime_default_reference/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+temp_dir	/lustre/home/d411/zcbtolt/qiime_tmp/
+blastall_fp	blastall
+seconds_to_sleep	1
+
+parameter file values:
+parallel:jobs_to_start	24
+
+Input file md5 sums:
+/lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/otu_table.biom: ca162d2ed1e5e071f5e1963a8e10b122
+/lustre/home/d411/zcbtolt/2018_02_smb/map_incomplete.tsv: b0352e66d14efec570b8013e1d576e4d
+/lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/rep_set.tre: e374b260375bb43283c417e643349265
+
+Executing commands.
+
+# Generate BIOM table summary command 
+biom summarize-table -i /lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/otu_table.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/biom_table_summary.txt 
+
+Stdout:
+
+Stderr:
+
+# Filter low sequence count samples from table (minimum sequence count: 600) command 
+filter_samples_from_otu_table.py -i /lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/otu_table.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_mc600.biom -n 600
+
+Stdout:
+
+Stderr:
+
+# Rarify the OTU table to 600 sequences/sample command 
+single_rarefaction.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_mc600.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_even600.biom -d 600
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Beta Diversity (weighted_unifrac) command 
+parallel_beta_diversity.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_even600.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600/ --metrics weighted_unifrac -T  -t /lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/rep_set.tre --jobs_to_start 24
+
+Stdout:
+
+Stderr:
+
+# Rename distance matrix (weighted_unifrac) command 
+mv /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_table_even600.txt /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_dm.txt
+
+Stdout:
+
+Stderr:
+
+# Principal coordinates (weighted_unifrac) command 
+principal_coordinates.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_dm.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_pc.txt 
+
+Stdout:
+
+Stderr:
+
+# Make emperor plots, weighted_unifrac) command 
+make_emperor.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_pc.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//weighted_unifrac_emperor_pcoa_plot/ -m /lustre/home/d411/zcbtolt/2018_02_smb/map_incomplete.tsv 
+
+Stdout:
+
+Stderr:
+
+# Beta Diversity (unweighted_unifrac) command 
+parallel_beta_diversity.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_even600.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600/ --metrics unweighted_unifrac -T  -t /lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/rep_set.tre --jobs_to_start 24
+
+Stdout:
+
+Stderr:
+
+# Rename distance matrix (unweighted_unifrac) command 
+mv /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_table_even600.txt /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_dm.txt
+
+Stdout:
+
+Stderr:
+
+# Principal coordinates (unweighted_unifrac) command 
+principal_coordinates.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_dm.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_pc.txt 
+
+Stdout:
+
+Stderr:
+
+# Make emperor plots, unweighted_unifrac) command 
+make_emperor.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_pc.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/bdiv_even600//unweighted_unifrac_emperor_pcoa_plot/ -m /lustre/home/d411/zcbtolt/2018_02_smb/map_incomplete.tsv 
+
+Stdout:
+
+Stderr:
+
+Executing commands.
+
+# Alpha rarefaction command 
+parallel_multiple_rarefactions.py -T -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_mc600.biom -m 10 -x 600 -s 59 -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//rarefaction/  --jobs_to_start 24
+
+Stdout:
+
+Stderr:
+
+# Alpha diversity on rarefied OTU tables command 
+parallel_alpha_diversity.py -T -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//rarefaction/ -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_div/  -t /lustre/home/d411/zcbtolt/2018_02_smb/de_novo_otus/rep_set.tre --jobs_to_start 24
+
+Stdout:
+
+Stderr:
+
+# Collate alpha command 
+collate_alpha.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_div/ -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_div_collated/ 
+
+Stdout:
+
+Stderr:
+
+# Removing intermediate files command 
+rm -r /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//rarefaction/ /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_div/
+
+Stdout:
+
+Stderr:
+
+# Rarefaction plot: All metrics command 
+make_rarefaction_plots.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_div_collated/ -m /lustre/home/d411/zcbtolt/2018_02_smb/map_incomplete.tsv -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/arare_max600//alpha_rarefaction_plots/ 
+
+Stdout:
+
+Stderr:
+
+Skipping compare_alpha_diversity.py as no categories were provided.
+
+Executing commands.
+
+# Sort OTU Table command 
+sort_otu_table.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/table_mc600.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted.biom
+
+Stdout:
+
+Stderr:
+
+# Summarize Taxonomy command 
+summarize_taxa.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted.biom -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/ 
+
+Stdout:
+
+Stderr:
+
+# Plot Taxonomy Summary command 
+plot_taxa_summary.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L2.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L3.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L4.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L5.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L6.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots//taxa_summary_plots/ 
+
+
+
+*** ERROR RAISED DURING STEP: Plot Taxonomy Summary
+Command run was:
+ plot_taxa_summary.py -i /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L2.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L3.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L4.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L5.txt,/lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots/table_mc600_sorted_L6.txt -o /lustre/home/d411/zcbtolt/2018_02_smb/core_diversity_analyses/taxa_plots//taxa_summary_plots/ 
+Command returned exit status: 1
+Stdout:
+
+Stderr
+Traceback (most recent call last):
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/bin/plot_taxa_summary.py", line 4, in <module>
+    __import__('pkg_resources').run_script('qiime==1.9.1', 'plot_taxa_summary.py')
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/pkg_resources/__init__.py", line 748, in run_script
+    self.require(requires)[0].run_script(script_name, ns)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/pkg_resources/__init__.py", line 1517, in run_script
+    exec(code, namespace, namespace)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime-1.9.1-py2.7.egg-info/scripts/plot_taxa_summary.py", line 278, in <module>
+    main()
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime-1.9.1-py2.7.egg-info/scripts/plot_taxa_summary.py", line 274, in main
+    resize_nth_label, label_type, include_html_legend)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime/plot_taxa_summary.py", line 1138, in make_all_charts
+    resize_nth_label, label_type, include_html_legend))
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime/plot_taxa_summary.py", line 1073, in get_counts
+    label_type, include_html_legend))
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime/plot_taxa_summary.py", line 861, in make_HTML_table
+    props={'title': title})
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime/plot_taxa_summary.py", line 662, in make_area_bar_chart
+    background_color, img_abs, generate_image_type, dpi)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/qiime/plot_taxa_summary.py", line 187, in make_legend
+    shadow=False, fancybox=False)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/figure.py", line 1277, in legend
+    l = Legend(self, handles, labels, *args, **kwargs)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend.py", line 385, in __init__
+    self._init_legend_box(handles, labels, markerfirst)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend.py", line 654, in _init_legend_box
+    fontsize, handlebox))
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend_handler.py", line 119, in legend_artist
+    fontsize, handlebox.get_transform())
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend_handler.py", line 252, in create_artists
+    self.update_prop(p, orig_handle, legend)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend_handler.py", line 78, in update_prop
+    legend._set_artist_props(legend_handle)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/legend.py", line 401, in _set_artist_props
+    a.set_figure(self.figure)
+  File "/lustre/home/d411/zcbtolt/.conda/envs/qiime1/lib/python2.7/site-packages/matplotlib/artist.py", line 640, in set_figure
+    raise RuntimeError("Can not put single artist in "
+RuntimeError: Can not put single artist in more than one figure
+
+
+Logging stopped at 13:36:43 on 08 Apr 2018

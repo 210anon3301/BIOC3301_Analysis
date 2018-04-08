@@ -1,0 +1,22 @@
+#!/bin/bash --login
+#PBS -l walltime=01:00:00
+#PBS -l select=1:ncpus=2
+#PBS -N core_microbiome
+#PBS -A d411-training
+
+# load module
+module load miniconda/python2
+
+# activate virtualenv
+source activate qiime1
+
+# create temporary directory
+export TMPDIR=~/qiime_tmp
+
+# compute core microbiome
+compute_core_microbiome.py \
+-i otu_table.biom \
+-o otu_table_core
+
+# deactivate virtualenv
+source deactivate

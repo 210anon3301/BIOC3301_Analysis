@@ -7,11 +7,11 @@
 # load module
 module load miniconda/python2
 
-# activate virtualenv
-source activate qiime1
-
 # create temporary directory
 export TMPDIR=~/qiime_tmp
+
+# activate virtualenv
+source activate qiime1
 
 # compare categories
 compare_categories.py \

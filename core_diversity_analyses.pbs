@@ -7,11 +7,12 @@
 # load module
 module load miniconda/python2
 
-# activate virtualenv
-source activate qiime1
 
 # create temporary directory
 export TMPDIR=~/qiime_tmp
+
+# activate virtualenv
+source activate qiime1
 
 # core diversity analyses
 time core_diversity_analyses.py \

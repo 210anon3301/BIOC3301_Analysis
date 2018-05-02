@@ -17,7 +17,7 @@ source activate qiime1
 # split de novo OTU table by taxonomy
 time split_otu_table_by_taxonomy.py \
 -i ~/2018_02_smb/de_novo_otus/otu_table.biom \
--o ~/2018_02_smb/de_novo_otus \
+-o ~/outputs/
 -L 2
 
 # deactivate virtualenv

@@ -21,7 +21,7 @@ compare_categories.py \
 -i ~/outputs/core_diversity_analyses/bdiv_even600/unweighted_unifrac_dm.txt \
 -m ~/2018_02_smb/map.tsv \
 -c SampleDepth \
--o ~/outputs/anosim_out \
+-o ~/outputs/anosim_sampledepth \
 -n 748
 
 # deactivate vitrualenv

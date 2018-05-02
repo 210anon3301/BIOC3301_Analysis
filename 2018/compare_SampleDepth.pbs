@@ -22,7 +22,7 @@ compare_categories.py \
 -m ~/2018_02_smb/map.tsv \
 -c SampleDepth \
 -o ~/outputs/anosim_out \
--n 999
+-n 748
 
 # deactivate vitrualenv
 source deactivate

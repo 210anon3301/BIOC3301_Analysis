@@ -22,7 +22,7 @@ time join_paired_ends.py \
 -b ~/2018_02_smb/Index.fastq.gz \
 -f ~/2018_02_smb/Read1.fastq.gz \
 -r ~/2018_02_smb/Read2.fastq.gz \
--o ~/2018_02_smb/SeqPrep_joined
+-o ~/outputs/SeqPrep_joined
 
 # deactivating virtualenv
 source deactivate 

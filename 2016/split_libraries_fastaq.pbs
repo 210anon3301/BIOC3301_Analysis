@@ -20,7 +20,7 @@ time split_libraries_fastq.py \
 -m ~/2016_02_smb/map.tsv \
 -i ~/2016_02_smb/Read1.fastq.gz \
 -b ~/2016_02_smb/Index.fastq.gz \
--o ~/outputs_16 \
+-o ~/outputs_16/split_libraries \
 -q 19 \
 --barcode_type 12
 

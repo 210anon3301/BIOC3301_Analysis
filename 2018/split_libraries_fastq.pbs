@@ -15,7 +15,7 @@ source activate qiime1
 
 # split libraries
 time split_libraries_fastq.py \
--m ~/2018_02_smb/map_incomplete.tsv \
+-m ~/2018_02_smb/map.tsv \
 -i ~/2018_02_smb/Read1.fastq.gz \
 -b ~/2018_02_smb/Index.fastq.gz \
 -o ~/outputs \

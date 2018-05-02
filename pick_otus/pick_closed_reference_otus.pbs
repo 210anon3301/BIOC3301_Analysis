@@ -16,7 +16,7 @@ source activate qiime1
 # pick closed reference OTUs
 time pick_closed_reference_otus.py \
 -i ~/2018_02_smb/seqs.fna \
--o ~/2018_02_smb/closed_reference_otus \
+-o ~/outputs/closed_reference_otus \
 -a \
 -O 2
 

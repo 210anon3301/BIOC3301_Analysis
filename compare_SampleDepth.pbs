@@ -19,7 +19,7 @@ compare_categories.py \
 -i ~/2018_02_smb/core_diversity_analyses/bdiv_even600/unweighted_unifrac_dm.txt \
 -m ~/2018_02_smb/map_incomplete.tsv \
 -c SampleDepth \
--o ~/2018_02_smb/adonis_out \
+-o ~/outputs/adonis_out \
 -n 999
 
 # deactivate vitrualenv

@@ -16,7 +16,7 @@ source activate qiime1
 # pick de novo OTUs
 time pick_de_novo_otus.py \
 -i ~/2018_02_smb/seqs.fna \
--o ~/2018_02_smb/de_novo_otus \
+-o ~/outputs/de_novo_otus \
 -a \
 -O 2
 

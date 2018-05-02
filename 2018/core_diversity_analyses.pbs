@@ -4,9 +4,10 @@
 #PBS -N core_diversity_analyses
 #PBS -A d411-training
 
+cd $PBS_O_WORKDIR
+
 # load module
 module load miniconda/python2
-
 
 # create temporary directory
 export TMPDIR=~/qiime_tmp

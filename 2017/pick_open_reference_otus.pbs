@@ -18,7 +18,7 @@ source activate qiime1
 # pick open reference OTUs
 time pick_open_reference_otus.py \
 -i ~/outputs_17/split_libraries/seqs.fna \
--o ~/outputs_17/open_reference_otus \
+-o ~/outputs_17/open_otus \
 -a \
 -O 16
 

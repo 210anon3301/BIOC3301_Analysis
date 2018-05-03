@@ -17,9 +17,9 @@ source activate qiime1
 
 # core diversity analyses
 time core_diversity_analyses.py \
--i ~/outputs_17/open_reference_otus/otu_table_mc2.biom \
+-i ~/outputs_17/open_otus/otu_table_mc2.biom \
 -m ~/2017_03_smb/map.tsv \
--t ~/outputs_17/open_reference_otus/rep_set.tre \
+-t ~/outputs_17/open_otus/rep_set.tre \
 -o ~/outputs_17/core_diversity_analyses \
 -e 600 \
 -a \

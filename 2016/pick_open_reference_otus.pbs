@@ -1,7 +1,7 @@
 #!/bin/bash -login
 #PBS -l walltime=10:00:00
 #PBS -l select=1:ncpus=32
-#PBS -N open_reference_otu
+#PBS -N open_reference_otu_16
 #PBS -A d411-training
 
 cd $PBS_O_WORKDIR
@@ -18,7 +18,7 @@ source activate qiime1
 # pick open reference OTUs
 time pick_open_reference_otus.py \
 -i ~/outputs_16/split_libraries/seqs.fna \
--o ~/outputs_16/open_reference_otus \
+-o ~/outputs_16/open_otus \
 -a \
 -O 16
 

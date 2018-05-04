@@ -1,0 +1,29 @@
+#!/bin/bash --login
+#PBS -l walltime=01:00:00
+#PBS -l select=1:ncpus=48
+#PBS -N corediv_3500
+#PBS -A d411-training
+
+cd $PBS_O_WORKDIR
+
+# load module
+module load miniconda/python2
+
+# create temporary directory
+export TMPDIR=~/qiime_tmp
+
+# activate virtualenv
+source activate qiime1
+
+# core diversity analyses
+time core_diversity_analyses.py \
+-i ~/outputs_16/silva_otus/otu_table.biom \
+-m ~/2016_02_smb/map.tsv \
+-t ~/SILVA_132_QIIME_release/trees/97/97_otus.tre \
+-o ~/outputs_16/corediv_3500 \
+-e 3500 \
+-a \
+-O 24
+
+# deactivate virtualenv
+source deactivate

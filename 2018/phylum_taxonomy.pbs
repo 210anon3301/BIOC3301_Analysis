@@ -16,10 +16,10 @@ export TMPDIR=~/qiime_tmp
 # activate virtualenv
 source activate qiime1
 
-# split de novo OTU table by taxonomy
+# split silva OTU table by taxonomy
 time split_otu_table_by_taxonomy.py \
--i ~/2018_02_smb/de_novo_otus/otu_table.biom \
--o ~/outputs/
+-i ~/outputs/silva_otus/otu_table.biom \
+-o ~/outputs/phylum_taxonomy
 -L 2
 
 # deactivate virtualenv

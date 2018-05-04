@@ -19,7 +19,7 @@ source activate qiime1
 time make_otu_heatmap.py \
 -i ~/outputs/core_microbiome/core_table_95.biom \
 -m ~/2018_02_smb/map.tsv \
--t ~/SILVA_132_QIIME_release/trees/97/97_otus.tre \
+-t ~/SILVA_132_QIIME_release/taxonomy/16S_only/97/majority_taxonomy_7_levels.txt \
 -o ~/outputs/otu_heatmap
 
 # deactivate virtualenv

@@ -18,7 +18,7 @@ source activate qiime1
 # compare categories
 compare_categories.py \
 --method anosim \
--i ~/outputs/corediv_3000/bdiv_even600/unweighted_unifrac_dm.txt \
+-i ~/outputs/corediv_3000/bdiv_even3000/unweighted_unifrac_dm.txt \
 -m ~/2018_02_smb/map.tsv \
 -c SamplePh \
 -o ~/outputs/anosim/ph_3000 \

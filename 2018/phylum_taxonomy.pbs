@@ -19,7 +19,7 @@ source activate qiime1
 # split silva OTU table by taxonomy
 time split_otu_table_by_taxonomy.py \
 -i ~/outputs/silva_otus/otu_table.biom \
--o ~/outputs/phylum_taxonomy
+-o ~/outputs/phylum_taxonomy \
 -L 2
 
 # deactivate virtualenv

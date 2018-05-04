@@ -21,7 +21,6 @@ time parallel_align_seqs_pynast.py \
 -i ~/outputs/rep_set.fna \
 -t ~/SILVA_132_QIIME_release/rep_set_aligned/97/97_alignment.fna \
 -o ~/outputs/aligned_seqs \
--a \
 -O 8
 
 # deactivate virtualenv

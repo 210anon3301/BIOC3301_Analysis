@@ -18,7 +18,7 @@ source activate qiime1
 # compute core microbiome
 compute_core_microbiome.py \
 -i ~/outputs/open_reference_otus/otu_table_mc2.biom \
--o ~/outputs/core_microbiome
+-o ~/outputs/open_ref_core_microbiome
 
 # deactivate virtualenv
 source deactivate

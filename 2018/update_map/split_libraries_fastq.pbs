@@ -22,6 +22,8 @@ time split_libraries_fastq.py \
 -b ~/2018_02_smb/Index.fastq.gz \
 -o ~/outputs/update_map/split_libraries \
 -q 19 \
+--rev_comp_barcode \
+--rev_comp_mapping_barcodes \
 --barcode_type 12
 
 # deactivate virtualenv

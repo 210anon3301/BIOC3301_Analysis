@@ -18,7 +18,6 @@ source activate qiime1
 # identify chimeras
 time identify_chimeric_seqs.py \
 -i ~/outputs/aligned_seqs/rep_set_aligned.fasta \
--m ChimeraSlayer \
 -a ~/SILVA_132_QIIME_release/rep_set_aligned/97/97_alignment.fna \
 -o ~/outputs/chimeric_seqs.txt \
 

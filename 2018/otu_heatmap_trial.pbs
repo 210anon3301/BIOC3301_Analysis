@@ -18,7 +18,6 @@ source activate qiime1
 # make otu heatmap
 time make_otu_heatmap.py \
 -i ~/outputs/core_microbiome/core_table_95.biom \
--m ~/2018_02_smb/map.tsv \
 -o ~/outputs/otu_heatmap_trial
 
 # deactivate virtualenv

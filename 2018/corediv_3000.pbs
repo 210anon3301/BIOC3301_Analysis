@@ -17,10 +17,10 @@ source activate qiime1
 
 # core diversity analyses
 time core_diversity_analyses.py \
--i ~/outputs/silva_otus/otu_table.biom \
--m ~/2018_02_smb/map.tsv \
--t ~/SILVA_132_QIIME_release/trees/97/97_otus.tre \
--o ~/outputs/corediv_3000 \
+-i ~/outputs/de_novo_otus/otu_table.biom \
+-m ~/2018_02_smb/update_map.tsv \
+-t ~/outputs/de_novo_otus/rep_set.tre \
+-o ~/outputs/de_novo_corediv3000 \
 -e 3000 \
 -a \
 -O 24

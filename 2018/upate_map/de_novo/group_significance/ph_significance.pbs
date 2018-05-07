@@ -17,8 +17,8 @@ source activate qiime1
 
 # group significance
 group_significance.py \
--i ~/outputs/open_reference_otus/otu_table_mc2.biom \
--m ~/2018_02_smb/map.tsv \
+-i ~/outputs/de_novo_otus/otu_table.biom \
+-m ~/2018_02_smb/update_map.tsv \
 -c SamplePh \
 -o ~/outputs/group_significance/
 

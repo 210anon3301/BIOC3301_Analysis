@@ -2,6 +2,7 @@
 
 Respository containing Bash comand line scripts for the metagenomic analysis of soil samples, as part of the UCL BIOC3301 Biochemistry Course.
 Scripts were run remotely on Cirrus, a HPC based in Edinburgh, via a Mac desktop computer.
+All scripts used for analysis can be found in the 2018 folder.
 
 # Scripts used for analysis
 # Computing alpha and beta diversities
@@ -35,3 +36,6 @@ otu_heatmap.pbs
 all scripts in anosim folder
 
 > Performs a statistical test on beta diversity data to find metadata that may be significant.
+
+
+PLEASE IGNORE core_diversty_analyses FOLDER

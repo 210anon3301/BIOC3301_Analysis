@@ -1,5 +1,0 @@
-1. Forward primer pad
-2. Forward primer linker
-3. Forward primer
-
-TATGGTAATT GT GTGYCAGCMGCCGCGGTAA

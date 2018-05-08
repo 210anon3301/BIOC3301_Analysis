@@ -1,0 +1,5 @@
+1. Reverse primer pad
+2. Reverse primer linker
+3. Reverse primer
+
+AGTCAGTCAG CC GGACTACNVGGGTWTCTAAT

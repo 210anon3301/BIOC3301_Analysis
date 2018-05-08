@@ -1,0 +1,6 @@
+1. Reverse complement of 3' Illumina adapter
+2. Reverse primer pad
+3. Reverse primer linker
+4. Reverse primer (806rB)
+
+CAAGCAGAAGACGGCATACGAGAT AGTCAGTCAG CC GGACTACNVGGGTWTCTAAT

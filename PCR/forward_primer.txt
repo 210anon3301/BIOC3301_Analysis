@@ -1,0 +1,7 @@
+1. 5’ Illumina adapter
+2. GoLay barcode
+3. Forward primer pad
+3. Forward primer linker
+4. Forward primer (515fB)
+
+AATGATACGGCGACCACCGAGATCTACACGCT XXXXXXXXXXXX TATGGTAATT GT GTGYCAGCMGCCGCGGTAA
